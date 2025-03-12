@@ -8,13 +8,7 @@ from .MLKA import *
 class BERTNew(nn.Module):
     def __init__(self,in_channel):
         super(BERTNew, self).__init__()
-        # print("Using BERTNew Model")
-        # self.conv1 = nn.Sequential(
-        #     nn.Conv1d(in_channels=in_channel, out_channels=30, kernel_size=3, stride=1,padding=1,bias=False),
-        #     nn.BatchNorm1d(30),
-        #     nn.GELU(),
-        #     nn.Dropout(p=0.2)
-        # )
+
         self.conv1 = nn.Sequential(
             nn.Conv1d(in_channels=in_channel, out_channels=60, kernel_size=3, stride=1,padding=1,bias=False),
             nn.BatchNorm1d(60),
