@@ -61,6 +61,22 @@ class BERTNew(nn.Module):
         x = self.linear1(x)
         x = self.drop(x)
         x = self.linear2(x)
-        # x = self.sigmoid(x)
-        # return F.sigmoid(x)
+
         return F.softmax(x,dim=1)
+
+class Bert_MCBAM_MLKA(nn.Module):
+    def __init__(self, input_channel):
+        super(Bert_MCBAM_MLKA, self).__init__()
+        self.bert = BertModel.from_pretrained("D:/Leonardo/DNABERT5", trust_remote_code=True)
+        for param in self.bert.parameters():
+            param.requires_grad = True
+        self.model = BERTNew(input_channel)
+
+    def forward(self, X):
+        
+
+        outputs = self.bert(X)
+        cls_embeddings = outputs[0]
+        cls_embeddings = cls_embeddings[:, 1:-1, :]
+        logits = self.model(cls_embeddings)
+        return logits
