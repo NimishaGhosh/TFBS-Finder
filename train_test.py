@@ -414,7 +414,7 @@ def load_train_objs(train_file,test_file,path_preModel:str):
     input_channel = dataset["input_chanel"]
     
     # Loading model
-    bert_blend_cnn = Bert_MCBAM_MLKA(input_channel,path_preModel)
+    bert_blend_cnn = BERTNew(input_channel,path_preModel)
     
     # Select optimizer and loss function
     optimizer = AdamW(bert_blend_cnn.parameters(), lr=1.5e-5, weight_decay=1e-2, no_deprecation_warning=True)
