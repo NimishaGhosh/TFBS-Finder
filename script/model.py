@@ -67,7 +67,7 @@ class BERTNew(nn.Module):
 class Bert_MCBAM_MLKA(nn.Module):
     def __init__(self, input_channel):
         super(Bert_MCBAM_MLKA, self).__init__()
-        self.bert = BertModel.from_pretrained("D:/Leonardo/DNABERT5", trust_remote_code=True)
+        self.bert = BertModel.from_pretrained("DNABERT5", trust_remote_code=True)
         for param in self.bert.parameters():
             param.requires_grad = True
         self.model = BERTNew(input_channel)
