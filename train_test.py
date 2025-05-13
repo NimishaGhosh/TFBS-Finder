@@ -418,7 +418,7 @@ def load_train_objs(train_file,test_file,path_preModel:str):
     
     # Select optimizer and loss function
     optimizer = AdamW(bert_blend_cnn.parameters(), lr=1.5e-5, weight_decay=1e-2, no_deprecation_warning=True)
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)
+    scheduler = ReduceLROnPlateau(optimizer, mode='max', factor=0.1, patience=5)
     
     loss_fn = torch.nn.CrossEntropyLoss()
     
