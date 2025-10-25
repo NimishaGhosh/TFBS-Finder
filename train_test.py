@@ -418,6 +418,8 @@ def load_train_objs(train_file,test_file,path_preModel:str):
     
     # Select optimizer and loss function
     optimizer = AdamW(bert_blend_cnn.parameters(), lr=1.5e-5, weight_decay=1e-2, no_deprecation_warning=True)
+    # The learning rate is fixed as the early stopping criteria is set patience = 2. 
+    # However, if any user wants to increase the patience value in early stopping criteria, they can use this scheduler.
     scheduler = ReduceLROnPlateau(optimizer, mode='max', factor=0.1, patience=5)
     
     loss_fn = torch.nn.CrossEntropyLoss()
