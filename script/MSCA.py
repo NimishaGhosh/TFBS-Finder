@@ -7,11 +7,11 @@ Created on Tue Oct 29 10:54:50 2024
 import torch
 import torch.nn as nn
 
-class MLKA(nn.Module):
+class MSCA(nn.Module):
     def __init__(self, in_channels, kernel_sizes, dilation):
-        super(MLKA, self).__init__()
+        super(MSCA, self).__init__()
 
-        # Multi-scale large kernel convolutions with different kernel sizes
+        # Multi-scale convolutions with attention module 
         self.conv1 = nn.Conv1d(in_channels, in_channels, kernel_size=kernel_sizes[0], 
                                padding=kernel_sizes[0] // 2, dilation=1, groups=in_channels, bias=False)
         
