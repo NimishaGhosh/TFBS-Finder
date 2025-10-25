@@ -1,7 +1,7 @@
 # from transformers.models.bert.configuration_bert import BertConfig
 from transformers import AutoModel,BertConfig,BertModel
 from .MCBAM import *
-from .MLKA import *
+from .MSCA import *
 
 
     
@@ -18,7 +18,7 @@ class BERTNew(nn.Module):
         self.SpatialGate = SpatialGate()
         self.ChannelGate = ChannelGate(gate_channels=60, reduction_ratio=12, pool_types=['avg', 'max'])
 
-        self.MLKA = MLKA(in_channels=60, kernel_sizes=[3, 5, 7], dilation=2)
+        self.MSCA = MSCA(in_channels=60, kernel_sizes=[3, 5, 7], dilation=2)
         self.conv3 = nn.Conv1d(in_channels=60, out_channels=90, kernel_size=3, stride=1, padding=1, bias=False)
 
         self.maxpool = nn.MaxPool1d(kernel_size=3, stride=2)
@@ -47,7 +47,7 @@ class BERTNew(nn.Module):
         x = self.SpatialGate(x)
         x = self.ChannelGate(x)
        
-        x1 = self.MLKA(residual)
+        x1 = self.MSCA(residual)
         x = self.conv3(x)+self.conv3(x1)
         avg = x
        
@@ -64,7 +64,7 @@ class BERTNew(nn.Module):
 
         return F.softmax(x,dim=1)
 
-class Bert_MCBAM_MLKA(nn.Module):
+class Bert_MCBAM_MSCA(nn.Module):
     def __init__(self, input_channel):
         super(Bert_MCBAM_MLKA, self).__init__()
         self.bert = BertModel.from_pretrained("DNABERT5", trust_remote_code=True)
@@ -80,3 +80,4 @@ class Bert_MCBAM_MLKA(nn.Module):
         cls_embeddings = cls_embeddings[:, 1:-1, :]
         logits = self.model(cls_embeddings)
         return logits
+
