@@ -66,7 +66,7 @@ class BERTNew(nn.Module):
 
 class Bert_MCBAM_MSCA(nn.Module):
     def __init__(self, input_channel):
-        super(Bert_MCBAM_MLKA, self).__init__()
+        super(Bert_MCBAM_MSCA, self).__init__()
         self.bert = BertModel.from_pretrained("DNABERT5", trust_remote_code=True)
         for param in self.bert.parameters():
             param.requires_grad = True
@@ -80,4 +80,5 @@ class Bert_MCBAM_MSCA(nn.Module):
         cls_embeddings = cls_embeddings[:, 1:-1, :]
         logits = self.model(cls_embeddings)
         return logits
+
 
