@@ -29,9 +29,11 @@ The pre-trained BERT model is available at Huggingface as zhihan1996/DNA_bert_5
 To load the model from Huggingface, we can use the following code:
 
 import torch
+
 from transformers import AutoTokenizer, AutoModel
 
 tokenizer = AutoTokenizer.from_pretrained("zhihan1996/DNA_bert_5", trust_remote_code=True)
+
 model = AutoModel.from_pretrained("zhihan1996/DNA_bert_5", trust_remote_code=True)
 
 The training and testing will run together. The script is train_test.py which uses multiple GPU. This code will work for single GPU as well. 
@@ -41,11 +43,17 @@ If you are running on 165 ChIP-seq datasets altogether for kmer = 5, please use 
 The model is stored at https://drive.google.com/file/d/1h24GRS8_dxazusUgMP3u4DGrmIhbQr0f/view?usp=sharing
 
 6. **script**
+7. 
    a) **dataloader.py** converts DNA sequences into token embeddings.
+   
    b) MCBAM.py implements the MCBAM module which integrates spatial attention and channel attention mechanisms.
+   
    c) MSCA.py implements the MSCA module which uses multi-scale convolutions with an attention mechanism.
+   
    d) model.py implements the TFBS-Finder which consists of a DNABERT module, a CNN module, an MCBAM, a MSCA module and an output module.
+   
    e) MetricsHolder.py stores the performance metrics values.
+   
 
 
 
