@@ -1,28 +1,46 @@
 # TFBS-Finder: a Deep Learning-based Model with DNABERT and Convolutional Networks to Predict Transcription Factor Binding Sites
+
 1. **Introduction**
+   
    We present a novel deep learning model called TFBS-Finder which is designed for predicting transcription factor binding sites (TFBSs) solely based on DNA sequences. The model comprises a pre-trained BERT module (DNABERT (kmer=5)), a convolutional neural network (CNN) module, a modified convolutional block attention module (MCBAM), a multi-scale convolutions with attention (MSCA) module and an output module. The model is trained and tested on 165 ENCODE ChIP-seq datasets, demonstrating the superior ability of TFBS-Finder to predict TFBSs. Experimental results indicate that TFBS-Finder achieves an average accuracy of 0.9301, a ROC-AUC of 0.961, and a PR-AUC of 0.961 for TFBS prediction. Here, the codes for implementing, training, and testing BERT-TFBS are provided.
 
-3. **Python Environment**
+2. **Python Environment**
+ 
    Python version           3.10.15
+   
    torch                    2.5.1
+   
   torchvision               0.20.1
+  
   transformers              4.50.3
+  
   numpy                     1.26.4
+  
   pandas                    2.2.3
+  
   scikit-learn              1.5.2
+  
   matplotlib                3.9.3
+  
   seaborn                   0.13.2
+  
   tensorflow                2.15.1
+  
   scipy                     1.14.1
+  
   tqdm                      4.67.1
 
-4. **LLM Environment**
+3. **LLM Environment**
+   
   Conda environment   : trap
+
   Platform            : Linux 6.8.0-85-generic
+  
   CUDA version        : 12.4
+  
   GPU device          : NVIDIA GeForce GTX 1080 Ti
 
-5. **How to run the model**
+4. **How to run the model**
 
 The pre-trained BERT model is available at Huggingface as zhihan1996/DNA_bert_5
 
@@ -42,8 +60,8 @@ If you are running on 165 ChIP-seq datasets altogether for kmer = 5, please use 
 
 The model is stored at https://drive.google.com/file/d/1h24GRS8_dxazusUgMP3u4DGrmIhbQr0f/view?usp=sharing
 
-6. **script**
-7. 
+5. **script**
+   
    a) **dataloader.py** converts DNA sequences into token embeddings.
    
    b) MCBAM.py implements the MCBAM module which integrates spatial attention and channel attention mechanisms.
