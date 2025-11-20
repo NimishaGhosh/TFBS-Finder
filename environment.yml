@@ -275,4 +275,3 @@ dependencies:
       - xgboost==3.0.0
       - xxhash==3.5.0
       - yarl==1.18.3
-prefix: /home/pratik/.conda/envs/trap
