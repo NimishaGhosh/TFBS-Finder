@@ -1,4 +1,4 @@
-# TFBS-Finder: a Deep Learning-based Model with DNABERT and Convolutional Networks to Predict Transcription Factor Binding Sites
+# A DNABERT based Deep Learning Framework for Predicting Transcription Factor Binding Sites
 
 1. **Introduction**
    
