@@ -1,4 +1,4 @@
-# A DNABERT based Deep Learning Framework for Predicting Transcription Factor Binding Sites
+# A DNABERT based Deep Learning Framework for Predicting Transcription Factor Binding Sites (Please cite as: Dutta, P., Ghosh, N. & Santoni, D. A DNABERT based deep learning framework for predicting transcription factor binding sites. Sci Rep 16, 7018 (2026). https://doi.org/10.1038/s41598-026-37483-1)
 
 1. **Introduction**
    
@@ -75,6 +75,7 @@
    d) model.py implements the TFBS-Finder which consists of a DNABERT module, a CNN module, an MCBAM, a MSCA module and an output module.
    
    e) MetricsHolder.py stores the performance metrics values.
+   
    
 
 
